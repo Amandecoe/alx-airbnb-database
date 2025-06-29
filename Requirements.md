@@ -75,7 +75,8 @@ Foreign key constraints on property_id and user_id.
 ## Message Table
 Foreign key constraints on sender_id and recipient_id.
 
-#Indexing
+# Indexing
+
 Primary Keys: Indexed automatically.
 Additional Indexes:
 email in the User table.
