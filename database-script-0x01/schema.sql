@@ -1,6 +1,5 @@
 USE alxdb;
-DROP TABLE USER;
-CREATE TABLE USER(
+CREATE TABLE USER (
   user_id INT PRIMARY KEY,
   UUID CHAR(36) UNIQUE,
   first_name VARCHAR(100) NOT NULL,
@@ -11,7 +10,7 @@ CREATE TABLE USER(
   role_ ENUM('guest', 'host', 'admin') NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-CREATE TABLE PROPERTY(
+CREATE TABLE PROPERTY (
   property_id INT PRIMARY KEY,
   UUID CHAR UNIQUE,
   host_id INT, 
@@ -22,4 +21,15 @@ CREATE TABLE PROPERTY(
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
   FOREIGN KEY (host_id) REFERENCES USER(user_id)
 );
-
+CREATE TABLE BOOKING (
+  booking_id INT PRIMARY KEY,
+  property_id INT,
+  user_id INT,
+  start_date DATE NOT NULL,
+  end_date DATE NOT NULL,
+  total_price DECIMAL(20) NOT NULL,
+  status_ ENUM('pending', 'confirmed', 'canceled') NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (property_id) REFERENCES Property(property_id),
+  FOREIGN KEY (user_id) REFERENCES User(user_id) 
+);
