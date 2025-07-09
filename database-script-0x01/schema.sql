@@ -21,7 +21,7 @@ CREATE TABLE PROPERTY (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
   FOREIGN KEY (host_id) REFERENCES USER(user_id)
 );
-CREATE TABLE BOOKING (
+CREATE TABLE Booking (
   booking_id INT PRIMARY KEY,
   property_id INT,
   user_id INT,
@@ -32,4 +32,13 @@ CREATE TABLE BOOKING (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (property_id) REFERENCES Property(property_id),
   FOREIGN KEY (user_id) REFERENCES User(user_id) 
+);
+CREATE TABLE PAYMENT(
+  payment_id INT PRIMARY KEY,
+  UUID CHAR,
+  booking_id INT,
+  payment_method ENUM('credit_card', 'paypal', 'stripe') NOT NULL,
+  amount DECIMAL (20) NOT NULL,
+  payment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (booking_id) REFERENCES booking(booking_id)
 );
