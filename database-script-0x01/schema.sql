@@ -42,3 +42,24 @@ CREATE TABLE PAYMENT(
   payment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (booking_id) REFERENCES booking(booking_id)
 );
+CREATE TABLE REVIEW(
+  review_id INT PRIMARY KEY,
+  UUID CHAR,
+  property_id INT,
+  user_id INT,
+  rating INTEGER NOT NULL CHECK (rating >=1 and rating <=5),
+  comment TEXT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (property_id) REFERENCES PROPERTY(property_id),
+  FOREIGN KEY (user_id) REFERENCES USER(user_id)
+);
+CREATE TABLE MESSAGE(
+  message_id INT PRIMARY KEY,
+  UUID CHAR,
+  sender_id INT, 
+  recipient_id INT,
+  message_body TEXT NOT NULL,
+  sent_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (sender_id) REFERENCES USER(user_id),
+  FOREIGN KEY (recipient_id) REFERENCES USER (user_id)
+);
