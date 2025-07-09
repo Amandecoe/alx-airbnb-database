@@ -11,4 +11,15 @@ CREATE TABLE USER(
   role_ ENUM('guest', 'host', 'admin') NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+CREATE TABLE PROPERTY(
+  property_id INT PRIMARY KEY,
+  UUID CHAR UNIQUE,
+  host_id INT, 
+  name_ VARCHAR(100) NOT NULL,
+  description_ TEXT NOT NULL,
+  location_ VARCHAR(100) NOT NULL,
+  pricepernight DECIMAL NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+  FOREIGN KEY (host_id) REFERENCES USER(user_id)
+);
 
