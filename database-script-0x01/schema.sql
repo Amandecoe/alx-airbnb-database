@@ -1,6 +1,6 @@
 USE alxdb;
 CREATE TABLE USER (
-  user_id INT PRIMARY KEY,
+  user_id INT PRIMARY KEY AUTO_INCREMENT,
   UUID CHAR(36) UNIQUE,
   first_name VARCHAR(100) NOT NULL,
   last_name VARCHAR(100) NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE USER (
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 CREATE TABLE PROPERTY (
-  property_id INT PRIMARY KEY,
+  property_id INT PRIMARY KEY AUTO_INCREMENT,
   UUID CHAR UNIQUE,
   host_id INT, 
   name_ VARCHAR(100) NOT NULL,
@@ -22,7 +22,7 @@ CREATE TABLE PROPERTY (
   FOREIGN KEY (host_id) REFERENCES USER(user_id)
 );
 CREATE TABLE Booking (
-  booking_id INT PRIMARY KEY,
+  booking_id INT PRIMARY KEY AUTO_INCREMENT,
   property_id INT,
   user_id INT,
   start_date DATE NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE Booking (
   FOREIGN KEY (user_id) REFERENCES User(user_id) 
 );
 CREATE TABLE PAYMENT(
-  payment_id INT PRIMARY KEY,
+  payment_id INT PRIMARY KEY AUTO_INCREMENT,
   UUID CHAR,
   booking_id INT,
   payment_method ENUM('credit_card', 'paypal', 'stripe') NOT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE PAYMENT(
   FOREIGN KEY (booking_id) REFERENCES booking(booking_id)
 );
 CREATE TABLE REVIEW(
-  review_id INT PRIMARY KEY,
+  review_id INT PRIMARY KEY AUTO_INCREMENT,
   UUID CHAR,
   property_id INT,
   user_id INT,
@@ -54,7 +54,7 @@ CREATE TABLE REVIEW(
   FOREIGN KEY (user_id) REFERENCES USER(user_id)
 );
 CREATE TABLE MESSAGE(
-  message_id INT PRIMARY KEY,
+  message_id INT PRIMARY KEY AUTO_INCREMENT,
   UUID CHAR,
   sender_id INT, 
   recipient_id INT,
