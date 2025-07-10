@@ -39,7 +39,7 @@ CREATE TABLE PAYMENT(
   payment_method ENUM('credit_card', 'paypal', 'stripe') NOT NULL,
   amount DECIMAL (20) NOT NULL,
   payment_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (booking_id) REFERENCES booking(booking_id)
+  FOREIGN KEY (booking_id) REFERENCES Booking(booking_id)
 );
 CREATE TABLE REVIEW(
   review_id INT PRIMARY KEY AUTO_INCREMENT,
