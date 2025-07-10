@@ -25,4 +25,6 @@ VALUES ('Room 22', 'Rented', 'Second floor', 1100.0);
 
 INSERT INTO USER(
   first_name ,last_name ,email  ,password_hash ,phone_number ,role_ )
-VALUES('Biruk','Daniel','birukdaniel22@gmail.com','birukddd',0911726639,'guest' )
+VALUES('Biruk','Daniel','birukdaniel22@gmail.com','birukddd',0911726639,'guest');
+
+
