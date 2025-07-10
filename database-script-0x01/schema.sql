@@ -10,16 +10,15 @@ CREATE TABLE USER (
   role_ ENUM('guest', 'host', 'admin') NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
 CREATE TABLE PROPERTY (
-  property_id INT PRIMARY KEY AUTO_INCREMENT,
-  UUID CHAR UNIQUE,
-  host_id INT, 
-  name_ VARCHAR(100) NOT NULL,
-  description_ TEXT NOT NULL,
-  location_ VARCHAR(100) NOT NULL,
-  pricepernight DECIMAL NOT NULL,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
-  FOREIGN KEY (host_id) REFERENCES USER(user_id)
+    property_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    name_ VARCHAR(100) NOT NULL,
+    description_ TEXT,
+    location_ VARCHAR(255),
+    pricepernight DECIMAL(10,2),
+    user_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES USER(user_id)
 );
 CREATE TABLE Booking (
   booking_id INT PRIMARY KEY AUTO_INCREMENT,
