@@ -32,4 +32,3 @@ INSERT INTO booking(
 )
 VALUES(01, 1, 1, 1800.0, 'confirmed' )
 
-SELECT 
