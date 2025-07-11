@@ -6,4 +6,5 @@ LEFT JOIN review ON property.property_id = review.property_id
 ORDER BY property.property_id, review.rating DESC;
 
 SELECT user.first_name, user.last_name, booking.start_date, booking.end_date FROM user
-FULL OUTER JOIN booking ON user.user_id = booking.user_id;
+INNER JOIN booking ON user.user_id = booking.user_id;
+
