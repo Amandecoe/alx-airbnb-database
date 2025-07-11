@@ -4,3 +4,6 @@ CREATE INDEX booking_id_index ON Booking(booking_id);
 
 SHOW INDEX FROM USER;
 SELECT * FROM USER WHERE user_id = 1;
+
+EXPLAIN SELECT * FROM PROPERTY WHERE property_id = 0;
+ANALYZE SELECT * FROM PROPERTY WHERE property_id = 0;
