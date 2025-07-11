@@ -32,3 +32,11 @@ INSERT INTO booking(
 )
 VALUES(01, 1, 1, 1800.0, 'confirmed' )
 
+INSERT INTO REVIEW(
+   property_id,  user_id, rating,comment
+)
+VALUES(1,1,5,'Great place to stay');
+INSERT INTO MESSAGE(
+  sender_id, recipient_id, message_body
+)
+VALUES(1,1,'HI CAN I ORDER ROOM SERVICE')
