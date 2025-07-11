@@ -1,2 +1,9 @@
-SELECT booking_id, start_date, end_date, user_id, property_id, 
-COUNT(booking_id) OVER(PARTITION BY start_date) as Partitionedcount FROM booking
+CREATE TABLE partitioned_table(
+  id INT NOT NULL AUTO_INCREMENT, 
+  name VARCHAR(100) NOT NULL,
+  start_date DATE NOT NULL,
+  PRIMARY KEY (id, start_date)
+)
+PARTITION BY RANGE(TO_DAYS(start_date)) (
+  PARTITION p0 VALUES LESS THAN (TO_DAYS('2023-01-01'))
+);
