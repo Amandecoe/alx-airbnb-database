@@ -21,3 +21,7 @@ EXPLAIN SELECT * FROM partitioned_table WHERE start_date = '2025-01-01';
 
 EXPLAIN SELECT * FROM booking
 DROP TABLE partitioned_table;
+
+SET profiling = 1;
+SELECT * FROM USER WHERE user_id = 1;
+SHOW PROFILES;
