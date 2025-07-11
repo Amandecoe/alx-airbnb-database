@@ -1,0 +1,1 @@
+SELECT * FROM Booking RIGHT JOIN USER ON booking_id.user=user.user_id
