@@ -27,4 +27,9 @@ INSERT INTO USER(
   first_name ,last_name ,email  ,password_hash ,phone_number ,role_ )
 VALUES('Biruk','Daniel','birukdaniel22@gmail.com','birukddd',0911726639,'guest');
 
+INSERT INTO booking(
+  booking_id , property_id, user_id, total_price,  status_
+)
+VALUES(01, 1, 1, 1800.0, 'confirmed' )
 
+SELECT 
