@@ -43,7 +43,7 @@ CREATE TABLE PAYMENT(
 );
 CREATE TABLE REVIEW(
   review_id INT PRIMARY KEY AUTO_INCREMENT,
-  UUID CHAR,
+  UUID CHAR UNIQUE,
   property_id INT,
   user_id INT,
   rating INTEGER NOT NULL CHECK (rating >=1 and rating <=5),
