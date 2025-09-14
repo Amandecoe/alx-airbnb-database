@@ -23,7 +23,6 @@ Contains data of the booking like when it was booked and how long that booking w
 
 This is where you can find the payment amount and also the payment method used. Also the date the payment was done.
 
-## REVIEW DATA
 
 Contains data acquired by users, data like rating of a property and also the comment they have given on that property.
 
